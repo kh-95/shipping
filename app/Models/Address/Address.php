@@ -1,27 +1,24 @@
 <?php
 
-namespace App\Models\Brand;
+namespace App\Models\Address;
 
-use App\Models\BrandCategory;
-use App\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\HasAssetsTrait;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-class Brand extends Model
+
+class Address extends Model
 {
-    use HasFactory, Uuid, HasAssetsTrait, Translatable, SoftDeletes;
+    use HasFactory, Uuid , Translatable, SoftDeletes;
 
 
     #region properties
     protected $appends = ['image'];
     protected $guarded = ['created_at', 'deleted_at'];
-    public $translatedAttributes = ['name'];
-    public $assets = ["image"];
-    public $with = ["images", "addedBy"];
+    public $translatedAttributes = ['home_address','work_address'];
+    public $with = ["addedBy"];
 
 
     #endregion properties
@@ -38,15 +35,4 @@ class Brand extends Model
     public function addedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'added_by_id');
-    }
-
-    public function brandCategories()
-    {
-        return $this->hasMany(BrandCategory::class);
-    }
-
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-}
+    }}

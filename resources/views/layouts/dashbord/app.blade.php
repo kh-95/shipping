@@ -21,7 +21,6 @@
 		<!-- Chartist css -->
 		<link href="{{asset('dashbord/vendor/chartist/css/chartist.min.css')}}" rel="stylesheet" />
 		<link href="{{asset('dashbord/vendor/chartist/css/chartist-custom.css')}}" rel="stylesheet" />
-		@livewireStyles
 	</head>
 	<body>
 
@@ -85,47 +84,7 @@
 		</div>
 		<!-- END: .app-wrap -->
 		@include('layouts.dashbord.script')
-		@livewireScripts	
-		<script type="text/javascript">
 
-window.livewire.on('userStore', () => {
-    $('#createModal').modal('hide');
-    $('#updateModal').modal('hide');
-});
-</script>
-<script type="text/javascript">
-
-window.livewire.on('projectStore', () => {
-    $('#createModal').modal('hide');
-    $('#updateModal').modal('hide');
-});
-</script>
-<script type="text/javascript">
-
-window.livewire.on('planStore', () => {
-    $('#createModal').modal('hide');
-    $('#updateModal').modal('hide');
-});
-</script>
-<script type="text/javascript">
-
-window.livewire.on('taskStore', () => {
-    $('#createModal').modal('hide');
-    $('#updateModal').modal('hide');
-});
-</script>
-<script  type="text/javascript">
-
-$('#x').change(function() {
-    if($(this).val()==="free"){ 
-      $("#hours").hide();  
-    }
-});
-
-
-
-	
-</script>
 
 	</body>
 </html>

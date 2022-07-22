@@ -2,6 +2,7 @@
 
 namespace App\Models\Category;
 
+use App\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
@@ -43,6 +44,11 @@ class Category extends Model
     public function brandCategories()
     {
         return $this->hasMany(BrandCategory::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
 }

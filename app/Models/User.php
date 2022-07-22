@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Address\Address;
+use App\Models\Brand\Brand;
+use App\Models\Category\Category;
+use App\Models\Product\Product;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,4 +45,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function Categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function brands()
+    {
+        return $this->hasMany(Brand::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    public function cards()
+    {
+        return $this->hasMany(Card::class);
+    }
 }

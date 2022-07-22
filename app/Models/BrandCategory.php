@@ -19,12 +19,12 @@ class BrandCategory extends Model
 
     public function Brand(): BelongsTo
     {
-        return $this->belongsTo(Brand::class, 'added_by_id');
+        return $this->belongsTo(Brand::class, 'brand_id');
     }
 
     public function Category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'added_by_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 

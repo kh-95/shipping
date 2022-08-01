@@ -52,23 +52,23 @@
 										<li>
 											<a href='/dashbord/index.html' class="current-page">Dashboard</a>
 										</li>
-										@if(auth()->user()->role=='admin')
+										{{-- @if(auth()->user()->role=='admin') --}}
 										<li>
-											<a href="{{url('planner/admin')}}">Users</a>
+											<a href="">Users</a>
 										</li>
-										@endif
+										{{-- @endif --}}
 										
-@if(auth()->user()->role=='admin')
+{{-- @if(auth()->user()->role=='admin') --}}
 										<li>
-											<a href="{{url('planner/projects')}}">Projects</a>
+											<a href="">Projects</a>
 										</li>
-						@endif
+						{{-- @endif --}}
 
-						@if(auth()->user()->role=='user')
+						{{-- @if(auth()->user()->role=='user') --}}
 										<li>
-<a href="{{url('user/projects')}}">Projects</a>
+<a href="">Projects</a>
 										</li>
-						@endif					
+						{{-- @endif					 --}}
 									
 									</ul>
 								</li>

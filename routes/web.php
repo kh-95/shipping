@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['prefix'=>'shipping','middleware'=>['auth','admin'],'as'=>'admin.','namespace'=>'\App\Http\Controllers\Admin'],function(){
+
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+   
 });

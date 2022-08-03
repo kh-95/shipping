@@ -18,10 +18,10 @@ class AdminMiddleware
     {
         if(!auth()->check() || auth()->user()->role !="admin"  ){
 
-            return redirect(route('planner'));
-            
+            return redirect(route('shipping'));
+
             }
             return $next($request);
-            
+
     }
 }

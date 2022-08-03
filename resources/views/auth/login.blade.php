@@ -11,7 +11,7 @@
 		<meta name="author" content="Bootstrap Gallery" />
 		<link rel="shortcut icon" href="/dashbord/img/favicon.ico" />
 		<title>Unify Admin Dashboard - Login</title>
-		
+
 		<!-- Common CSS -->
 		<link rel="stylesheet" href="/dashbord/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="/dashbord/fonts/icomoon/icomoon.css" />
@@ -19,17 +19,16 @@
 		<!-- Mian and Login css -->
 		<link rel="stylesheet" href="/dashbord/css/main.css" />
 
-	</head>  
+	</head>
 
-@extends('layouts.dashbord.app')
 
-@section('content')
+
 <body class="login-bg">
-			
+
             <div class="container">
                 <div class="login-screen row align-items-center">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                   
+
                     <form method="POST" action="">
                         @csrf
                         <div class="login-container">
@@ -58,7 +57,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        
+
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
@@ -96,4 +95,4 @@
 				Copyright Unify Admin 2017.
 			</div>
 		</footer>
-@endsection
+

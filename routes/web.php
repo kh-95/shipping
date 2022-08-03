@@ -29,7 +29,7 @@ Route::controller('Auth\ResetController')->group(function () {
     Route::post('reset_password', 'updatePassword');
 });
 Route::get('/', function () {
-    return view('layouts.dashbord.app');
+    return view('auth.login');
 });
 
 

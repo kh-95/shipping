@@ -20,13 +20,13 @@ public function addedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'added_by_id');
     }
-    public function cartProducts()
-    {
-        return $this->hasMany(CartProduct::class);
-    }
 
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+    public function cartProducts()
+    {
+        return $this->belongsToMany(CartProduct::class);
     }
 }

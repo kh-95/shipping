@@ -43,7 +43,7 @@ class CreateUsersTable extends Migration
             $table->string('reset_token',100)->nullable();
             $table->boolean('is_notification_enabled')->default(true)->comment('check if notication is active');
             $table->boolean('is_red_notifications')->default(false)->comment('check if notications bell is clicked');
-            $table->rememberToken();
+            $table->string('remember_token')->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->index(['created_at']);

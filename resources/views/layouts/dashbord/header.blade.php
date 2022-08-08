@@ -17,7 +17,7 @@
 						<div class="col-xl-5 col-lg-5 col-md-5 col-sm-3 col-4">
 							<ul class="header-actions">
 								<li class="dropdown">
-								
+
 									<div class="dropdown-menu dropdown-menu-right lg" aria-labelledby="notifications">
 										<ul class="imp-notify">
 											<li>
@@ -42,7 +42,7 @@
 									</div>
 								</li>
 								<li>
-								
+
 									<div class="dropdown-menu dropdown-menu-right lg" aria-labelledby="todos">
 										<ul class="stats-widget">
 				              <li>
@@ -109,7 +109,7 @@
 											</li>
 										</ul>
 										<div class="logout-btn">
-											<a href="/dashbord/login.html" class="btn btn-primary">Logout</a>
+											<a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
 										</div>
 									</div>
 								</li>

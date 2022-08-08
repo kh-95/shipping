@@ -53,7 +53,7 @@ class Product extends Model
 
     public function cartProducts()
     {
-        return $this->hasMany(CartProduct::class);
+        return $this->belongsToMany(CartProduct::class);
     }
 
     public function reviews()

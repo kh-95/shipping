@@ -107,10 +107,19 @@
 													<p>Activity</p>
 												</a>
 											</li>
-										</ul>
-										<div class="logout-btn">
-											<a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
+
+
+                                        </ul>
+                                        <div class="logout-btn">
+                                                <form  action="{{ route('logout') }}" method="POST" >
+                                                    {{ csrf_field() }}
+
+
+                                                    <button type="submit"  class="btn btn-primary">Logout</button>
+
+                                                </form>
 										</div>
+
 									</div>
 								</li>
 							</ul>

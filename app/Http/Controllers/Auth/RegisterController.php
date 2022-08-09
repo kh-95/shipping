@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -62,12 +64,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    public function showRegistrationForm (){
+
+        return view('auth.register');
+
+    }
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+         User::create([
+            'fullname' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
         ]);
+
+        return redirect()->route('home');
     }
 }

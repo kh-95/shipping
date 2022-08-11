@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.master')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.request') }}">
                         @csrf
 
                         <div class="row mb-3">

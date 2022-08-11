@@ -14,36 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::namespace('Auth')->group(function () {
-//     Route::get('login', 'LoginController@loginForm')->name('login');
-//     Route::post('login', 'LoginController@process_login')->name('login-form');
-// });
-
-// Route::controller('Auth\RegisterController')->group(function () {
-//     Route::get('register', 'registerForm');
-//     Route::post('register', 'register');
-//     Route::post('check_code', 'checkUserCode');
-//     Route::post('verify_phone_code', 'verifyPhoneCode');
-//     Route::post('complete_register', 'completeRegister');
-// });
-
-// Route::controller('Auth\ResetController')->group(function () {
-//     Route::post('reset_password', 'updatePassword');
-// });
-
-
-
-
-// Route::middleware(['auth','admin'])->group(function () {
-//         Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-    Route::get('/home', function () {
+Route::middleware(['auth','admin'])->group(function () {
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/home', function () {
 return view('layouts.dashbord.app');
-})->name('home');
+       })->name('home');
+Route::resource('categories','CategoryController');
 
 
-// });
-
+});
 
 
 Auth::routes();

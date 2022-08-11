@@ -11,7 +11,7 @@
 		<meta name="author" content="Bootstrap Gallery" />
 		<link rel="shortcut icon" href="/dashbord/img/favicon.ico" />
 		<title>Unify Admin Dashboard</title>
-		
+
 		<!-- Common CSS -->
 		<link rel="stylesheet" href="{{asset('dashbord/css/bootstrap.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('dashbord/fonts/icomoon/icomoon.css')}}" />
@@ -58,7 +58,7 @@
 									</div>
 									<div class="page-title">
 										<h5>Dashboard</h5>
-										
+
 									</div>
 								</div>
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
@@ -70,9 +70,16 @@
 						</div>
 					</header>
 				<!-- BEGIN .app-main -->
-			
-				@yield('content')
 
+			<!-- BEGIN .main-content -->
+
+    <!-- Row start -->
+    
+    @yield('content')
+
+
+<!-- END: .main-content -->
+                </div>
 				<!-- END: .app-main -->
 			</div>
 			<!-- END: .app-container -->

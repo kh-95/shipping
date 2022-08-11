@@ -14,15 +14,27 @@
 										</a>
 										<div class="input-group">
 											<span class="input-group-addon" id="email"><i class="icon-account_circle"></i></span>
-											<input type="text" class="form-control" name ="email" placeholder="email" aria-label="email" aria-describedby="email">
-										</div>
+											<input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" aria-describedby="Email">
+                                        </div>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
 										<br>
 										<div class="input-group">
 											<span class="input-group-addon" id="password"><i class="icon-verified_user"></i></span>
-											<input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="password">
-										</div>
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" aria-describedby="password" required autocomplete="current-password" name="password">                                        </div>
+
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 										<div class="actions clearfix">
-											<a href="/dashbord/forgot-pwd.html">Lost password?</a>
+
+											<a href="">Lost password?</a>
 									  	<button type="submit"  class="btn btn-primary">Login</button>
 									  </div>
 									  <div class="or"></div>

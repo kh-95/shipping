@@ -42,37 +42,31 @@
 							<!-- BEGIN: side-nav-content -->
 							<ul class="unifyMenu" id="unifyMenu">
 								<li class="active selected">
-									<a href="#" class="has-arrow" aria-expanded="false">
+									<a href="{{ route('home') }}" class="has-arrow" aria-expanded="false">
 										<span class="has-icon">
 											<i class="icon-laptop_windows"></i>
 										</span>
 										<span class="nav-title">Dashboards</span>
 									</a>
 									<ul aria-expanded="false" class="collapse in">
+
+										@if(auth()->user()->user_type=='admin')
 										<li>
-											<a href='/dashbord/index.html' class="current-page">Dashboard</a>
+											<a href="{{ route('categories.index') }}">Category</a>
 										</li>
-										{{-- @if(auth()->user()->role=='admin') --}}
-										<li>
-											<a href="">Users</a>
-										</li>
-										{{-- @endif --}}
-										
+										@endif
+
 {{-- @if(auth()->user()->role=='admin') --}}
 										<li>
-											<a href="">Projects</a>
+											<a href="">Products</a>
 										</li>
 						{{-- @endif --}}
 
-						{{-- @if(auth()->user()->role=='user') --}}
-										<li>
-<a href="">Projects</a>
-										</li>
-						{{-- @endif					 --}}
-									
+
+
 									</ul>
 								</li>
-				
+
 							</ul>
 							<!-- END: side-nav-content -->
 						</nav>

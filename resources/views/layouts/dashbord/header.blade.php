@@ -76,9 +76,9 @@
 				          </div>
 								</li>
 								<li class="dropdown">
-									<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+                                    <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 										<img class="avatar" src="/dashbord/img/user.png" alt="User Thumb" />
-										<span class="user-name"></span>
+										<span class="user-name">{{ auth()->user()->fullname }}</span>
 										<i class="icon-chevron-small-down"></i>
 									</a>
 									<div class="dropdown-menu lg dropdown-menu-right" aria-labelledby="userSettings">

@@ -15,14 +15,20 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'id' => Str::random(10),
-            'fullname' => 'admin',
-            'email' => 'khadeagas@gmail.com',
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '123456789', // password
+            'password' => '$2y$10$Sia.k.G2O7O0iC7DkS1rfu04OkddifmLT20YzxP7NfNQ5M2LNOb/y', // password
             'remember_token' => Str::random(10),
         ];
     }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+
 
     /**
      * Indicate that the model's email address should be unverified.

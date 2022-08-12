@@ -17,7 +17,7 @@
 						<div class="col-xl-5 col-lg-5 col-md-5 col-sm-3 col-4">
 							<ul class="header-actions">
 								<li class="dropdown">
-								
+
 									<div class="dropdown-menu dropdown-menu-right lg" aria-labelledby="notifications">
 										<ul class="imp-notify">
 											<li>
@@ -42,7 +42,7 @@
 									</div>
 								</li>
 								<li>
-								
+
 									<div class="dropdown-menu dropdown-menu-right lg" aria-labelledby="todos">
 										<ul class="stats-widget">
 				              <li>
@@ -76,9 +76,9 @@
 				          </div>
 								</li>
 								<li class="dropdown">
-									<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+                                    <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 										<img class="avatar" src="/dashbord/img/user.png" alt="User Thumb" />
-										<span class="user-name"></span>
+										<span class="user-name">{{ auth()->user()->fullname }}</span>
 										<i class="icon-chevron-small-down"></i>
 									</a>
 									<div class="dropdown-menu lg dropdown-menu-right" aria-labelledby="userSettings">
@@ -107,10 +107,19 @@
 													<p>Activity</p>
 												</a>
 											</li>
-										</ul>
-										<div class="logout-btn">
-											<a href="/dashbord/login.html" class="btn btn-primary">Logout</a>
+
+
+                                        </ul>
+                                        <div class="logout-btn">
+                                                <form  action="{{ route('logout') }}" method="POST" >
+                                                    {{ csrf_field() }}
+
+
+                                                    <button type="submit"  class="btn btn-primary">Logout</button>
+
+                                                </form>
 										</div>
+
 									</div>
 								</li>
 							</ul>

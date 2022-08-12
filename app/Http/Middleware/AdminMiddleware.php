@@ -16,12 +16,13 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(!auth()->check() || auth()->user()->role !="admin"  ){
 
-            return redirect(route('planner'));
-            
-            }
-            return $next($request);
-            
+            if (auth()->check() && auth()->user()->user_type == 'admin'){
+                return $next($request);
+            }else{
+                return redirect('login');
+                }
+
+
     }
 }

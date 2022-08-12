@@ -14,7 +14,7 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->uuid('id')->primpary();
+            $table->uuid('id')->primary();
             $table->integer('total');
             $table->enum('type_delivery',["standard delivery","next day delivery","nominated delivery"]);
             $table->integer("tax");

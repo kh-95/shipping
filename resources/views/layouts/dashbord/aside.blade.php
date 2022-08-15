@@ -54,11 +54,12 @@
 										<li>
 											<a href="{{ route('categories.index') }}">Category</a>
 										</li>
-										@endif
+
                                         <li>
 											<a href="{{ route('categories.create') }}">Add Category</a>
 										</li>
 {{-- @if(auth()->user()->role=='admin') --}}
+@endif
 										<li>
 											<a href="">Products</a>
 										</li>

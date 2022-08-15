@@ -20,6 +20,9 @@
 													<th>Name</th>
 													<th>Image</th>
 													<th>Created_at</th>
+													<th>Actions</th>
+
+
 
 												</tr>
 											</thead>
@@ -29,8 +32,49 @@
 
 												<tr>
 													<td>{{ $category->name }}</td>
-													<td>{{ $category->image }}</td>
+													<td> <img src="{{ $category->image }}" alt="" height="50" width="50"></td>
 													<td>{{ $category->created_at }}</td>
+                                                    <td>
+                                                        <a href="{{route('categories.edit',$category->id)}}"><button class="btn btn-info"><i class="fa fa-edit"></i>Edit</button></a>
+
+                                  <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal{{$category->id}}"><i class="fa fa-trash"></i>
+                                  Delete</button>
+
+
+
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          Are you sure delete <span style="color:red";> {{$category->name}}</span>
+                                        </div>
+                                        <div class="modal-footer">
+
+
+<form method="post" action="{{route('categories.destroy',$category->id)}}">
+    @csrf
+@method('Delete')
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button  type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                                                        </td>
 
 												</tr>
                                                 @endforeach

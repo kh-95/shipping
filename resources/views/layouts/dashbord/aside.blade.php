@@ -51,19 +51,23 @@
 									<ul aria-expanded="false" class="collapse in">
 
 										@if(auth()->user()->user_type=='admin')
-										<li>
+
+										<li >
 											<a href="{{ route('categories.index') }}">Category</a>
 										</li>
 
-                                        <li>
+                                        <li  >
 											<a href="{{ route('categories.create') }}">Add Category</a>
 										</li>
-{{-- @if(auth()->user()->role=='admin') --}}
-@endif
+
 										<li>
-											<a href="">Products</a>
+											<a href="{{ route('brands.index') }}">Brand</a>
 										</li>
-						{{-- @endif --}}
+
+                                        <li  >
+											<a href="{{ route('brands.create') }}">Add Brand</a>
+										</li>
+						@endif
 
 
 

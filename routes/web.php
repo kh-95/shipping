@@ -19,7 +19,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', function () {
 return view('layouts.dashbord.app');
        })->name('home');
-Route::resource('categories','CategoryController');
+Route::resource('categories','Dashboard\CategoryController');
+Route::resource('brands','Dashboard\BrandController');
 
 
 });

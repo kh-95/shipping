@@ -11,5 +11,5 @@ class ProductTranslation extends Model
     use HasFactory, Uuid;
 
     public $timestamps = false;
-    protected $fillable = ['name','price','colour','description','rate','status','count'];
+    protected $fillable = ['name','price','colour','description','status','count'];
 }

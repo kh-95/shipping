@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\HasAssetsTrait;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
+
 class Product extends Model
 {
     use HasFactory, Uuid, HasAssetsTrait, Translatable, SoftDeletes;
@@ -21,7 +23,7 @@ class Product extends Model
     #region properties
     protected $appends = ['image'];
     protected $guarded = ['created_at', 'deleted_at'];
-    public $translatedAttributes = ['name','price','colour','description','rate','status','count'];
+    public $translatedAttributes = ['name','price','colour','description','status','count'];
     public $assets = ["image"];
     public $with = ["images", "addedBy"];
 

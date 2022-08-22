@@ -28,10 +28,10 @@ class CreateProductsTable extends Migration
             $table->foreignUuid('product_id')->constrained('products')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('name',100);
-            $table->boolean('price');
+            $table->string('price');
             $table->string('colour');
             $table->string('description',100);
-            $table->integer('rate');
+            $table->integer('rate')->nullable();
             $table->string('status');
             $table->integer('count');
             $table->unique(['product_id', 'locale']);

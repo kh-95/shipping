@@ -21,6 +21,7 @@ return view('layouts.dashbord.app');
        })->name('home');
 Route::resource('categories','Dashboard\CategoryController');
 Route::resource('brands','Dashboard\BrandController');
+Route::resource('products','Dashboard\ProductController');
 
 
 });

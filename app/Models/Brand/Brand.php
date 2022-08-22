@@ -26,13 +26,13 @@ class Brand extends Model
 
     #endregion properties
 
-    public static function boot()
-    {
-        parent::boot();
-        static::saved(function ($model) {
-            $model->saveAssets($model, request());
-        });
-    }
+    // public static function boot()
+    // {
+    //     parent::boot();
+    //     static::saved(function ($model) {
+    //         $model->saveAssets($model, request());
+    //     });
+    // }
 
 
     public function addedBy(): BelongsTo

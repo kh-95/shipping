@@ -32,7 +32,7 @@ class BrandRequest extends FormRequest
         foreach (config('translatable.locales') as $locale) {
 
             $rules["$locale"]               = "array";
-            $rules["$locale.name"]          = "required|min:2|max:100|unique:category_translations,name," . @$this->category  . ",category_id";
+            $rules["$locale.name"]          = "required|min:2|max:100|unique:brand_translations,name," . @$this->brand  . ",brand_id";
         }
 
         return $rules;

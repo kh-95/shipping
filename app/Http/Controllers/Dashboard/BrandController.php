@@ -5,91 +5,63 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Brand\Brand;
 use Illuminate\Http\Request;
+use App\Http\Requests\Dashbord\BrandRequest;
 
 class BrandController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $Brands = Brand::without('addedBy')
         ->with('translations')
         ->ListsTranslations("name")
-        ->addSelect('Brands.created_at', 'Brands.added_by_id')
+        ->addSelect('Brands.created_at', 'Brands.added_by_id','Brands.type')
         ->paginate(10);
 
 
     return view('dashboard.Brands.index', compact('Brands'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
         $locales = config('translatable.locales');
         return view('dashboard.Brands.create', compact('locales'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(BrandRequest $request, Brand $brand)
     {
-        //
+
+        $brand->fill($request->validated() + ['added_by_id' => auth()->id()])->save();
+        return redirect()->route('brands.index')->withSuccess('success_add');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+
+        $brand = Brand::with('translations')->findOrFail($id);
+
+        $locales = config('translatable.locales');
+        return view('dashboard.Brands.edit', compact('brand', 'locales'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(BrandRequest $request, $brand)
     {
-        //
+
+
+        $brandx = Brand::findOrFail($brand);
+        $brandx->fill($request->validated() + ['updated_at' => now()])->save();
+        return redirect()->route('brands.index')->withSuccess('success_update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+
+        Brand::findOrFail($id)->delete();
+        session()->flash('success', ('deleted_successfully'));
+        return redirect()->route('brands.index');
     }
 }

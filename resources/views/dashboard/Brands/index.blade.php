@@ -32,10 +32,10 @@
 
 												<tr>
 													<td>{{ $brand->name }}</td>
-													<td>{{ $brand->type }} </td>
-													<td>{{ $category->created_at }}</td>
+													<td>{{ $brand->type}} </td>
+													<td>{{ $brand->created_at }}</td>
                                                     <td>
-                                                        <a href=""><button class="btn btn-info"><i class="fa fa-edit"></i>Edit</button></a>
+                                                        <a href="{{route('brands.edit',$brand->id)}}"><button class="btn btn-info"><i class="fa fa-edit"></i>Edit</button></a>
 
                                   <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal{{$brand->id}}"><i class="fa fa-trash"></i>
                                   Delete</button>
@@ -58,7 +58,7 @@
                                         <div class="modal-footer">
 
 
-<form method="post" action="">
+<form method="post" action="{{route('brands.destroy',$brand->id)}}">
     @csrf
 @method('Delete')
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
